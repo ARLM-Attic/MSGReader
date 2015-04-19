@@ -185,7 +185,7 @@ namespace MsgReader.Outlook
         /// <param name="storage"> The storage to get sub streams and storages for. </param>
         protected virtual void LoadStorage(NativeMethods.IStorage storage)
         {
-            if (storage == null)
+            if (_storage == null)
                 throw new ArgumentNullException("storage", "Storage can not be null"); 
             
             _storage = storage;
@@ -232,6 +232,109 @@ namespace MsgReader.Outlook
                 if (storageElementEnum != null)
                     Marshal.ReleaseComObject(storageElementEnum);
             }
+        }
+        #endregion
+
+        #region AddStorage
+        /// <summary>
+        /// Add's a new storage to the give <paramref name="storage"/> or add's it to the root when
+        /// <c>null</c> is used
+        /// </summary>
+        /// <param name="storage"> The <see cref="NativeMethods.IStorage"/> to add the new storage to, 
+        /// <c>null</c> to add the new storage to the root of the file </param>
+        protected virtual void AddStorage(NativeMethods.IStorage storage)
+        {
+            throw new NotImplementedException();
+            //_storage = storage;
+
+            //// Ensures memory is released
+            //ReferenceManager.AddItem(storage);
+            //NativeMethods.IEnumSTATSTG storageElementEnum = null;
+
+            //try
+            //{
+            //    // Enum all elements of the storage
+            //    storage.EnumElements(0, IntPtr.Zero, 0, out storageElementEnum);
+
+            //    // Iterate elements
+            //    while (true)
+            //    {
+            //        // Get 1 element out of the COM enumerator
+            //        uint elementStatCount;
+            //        var elementStats = new STATSTG[1];
+            //        storageElementEnum.Next(1, elementStats, out elementStatCount);
+
+            //        // Break loop if element not retrieved
+            //        if (elementStatCount != 1)
+            //            break;
+
+            //        var elementStat = elementStats[0];
+            //        switch (elementStat.type)
+            //        {
+            //            case 1:
+            //                // Element is a storage, add its statistics object to the storage dictionary
+            //                _subStorageStatistics.Add(elementStat.pwcsName, elementStat);
+            //                break;
+
+            //            case 2:
+            //                // Element is a stream, add its statistics object to the stream dictionary
+            //                _streamStatistics.Add(elementStat.pwcsName, elementStat);
+            //                break;
+            //        }
+            //    }
+            //}
+            //finally
+            //{
+            //    // Free memory
+            //    if (storageElementEnum != null)
+            //        Marshal.ReleaseComObject(storageElementEnum);
+            //}
+        }
+        #endregion
+
+        #region AddStream
+        /// <summary>
+        /// Add's a new <see cref="IStream"/> to the give <paramref name="storage"/> or add's it 
+        /// to the root when <c>null</c> is used
+        /// </summary>
+        /// <param name="storage"> The <see cref="IStream"/> to add to the current <see cref="_storage"/>
+        /// or <c>null</c> to add it to the root</param>
+        protected virtual NativeMethods.IStorage AddStream(IStream storage)
+        {
+            throw new NotImplementedException();
+            //    // Iterate elements
+            //    while (true)
+            //    {
+            //        // Get 1 element out of the COM enumerator
+            //        uint elementStatCount;
+            //        var elementStats = new STATSTG[1];
+            //        storageElementEnum.Next(1, elementStats, out elementStatCount);
+
+            //        // Break loop if element not retrieved
+            //        if (elementStatCount != 1)
+            //            break;
+
+            //        var elementStat = elementStats[0];
+            //        switch (elementStat.type)
+            //        {
+            //            case 1:
+            //                // Element is a storage, add its statistics object to the storage dictionary
+            //                _subStorageStatistics.Add(elementStat.pwcsName, elementStat);
+            //                break;
+
+            //            case 2:
+            //                // Element is a stream, add its statistics object to the stream dictionary
+            //                _streamStatistics.Add(elementStat.pwcsName, elementStat);
+            //                break;
+            //        }
+            //    }
+            //}
+            //finally
+            //{
+            //    // Free memory
+            //    if (storageElementEnum != null)
+            //        Marshal.ReleaseComObject(storageElementEnum);
+            //}
         }
         #endregion
 

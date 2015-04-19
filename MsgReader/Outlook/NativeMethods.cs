@@ -84,7 +84,7 @@ namespace MsgReader.Outlook
 
             #region CloneStorage
             /// <summary>
-            /// This will clone the give <see cref="source"/> storage
+            /// This will clone the given <see cref="source"/> storage
             /// </summary>
             /// <param name="source">The source to clone</param>
             /// <param name="closeSource">True to close the cloned source after cloning</param>
@@ -171,7 +171,7 @@ namespace MsgReader.Outlook
 
             #region IStorage
             /// <summary>
-            /// Supports creation and management of structured storage objects which enable. hierarchical storage 
+            /// Supports creation and management of structured storage objects which enables hierarchical storage 
             /// of information within a single file
             /// </summary>
             [ComImport, InterfaceType(ComInterfaceType.InterfaceIsIUnknown), Guid("0000000B-0000-0000-C000-000000000046")]

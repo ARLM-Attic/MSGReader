@@ -44,7 +44,7 @@ namespace MsgReader.Outlook
             #region Private nested class Recipient
             /// <summary>
             /// Used as a placeholder for the recipients from the MSG file itself or from the "internet"
-            /// headers when this message is send outside an Exchange system
+            /// headers when this message is sent outside an Exchange system
             /// </summary>
             private class RecipientPlaceHolder
             {
