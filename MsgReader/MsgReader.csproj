@@ -45,6 +45,9 @@
     <AssemblyOriginatorKeyFile>MsgReader.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CompoundFileStorage">
+      <HintPath>..\packages\CompoundFileStorage.1.2.0\lib\CompoundFileStorage.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -176,6 +179,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="MsgReader.snk" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Localization\LanguageConsts.fr.resx">
