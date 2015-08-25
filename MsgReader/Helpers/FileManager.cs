@@ -61,17 +61,17 @@ namespace MsgReader.Helpers
         {
             var fileNameWithoutExtension = GetFileNameWithoutExtension(fileName);
 
-            if (string.IsNullOrWhiteSpace(fileNameWithoutExtension))
+            if (string.IsNullOrEmpty(fileNameWithoutExtension))
                 throw new ArgumentException(@"No file name is given, e.g. c:\temp\temp.txt", "fileName");
 
             var extension = GetExtension(fileName);
 
-            if (string.IsNullOrWhiteSpace(extension))
+            if (string.IsNullOrEmpty(extension))
                 extension = string.Empty;
 
             var path = GetDirectoryName(fileName);
 
-            if (string.IsNullOrWhiteSpace(path))
+            if (string.IsNullOrEmpty(path))
                 throw new ArgumentException(@"No path is given, e.g. c:\temp\temp.txt", "fileName");
 
             path = CheckForBackSlash(path);
@@ -100,7 +100,7 @@ namespace MsgReader.Helpers
         /// <exception cref="ArgumentException">Raised when no path is given</exception>
         public static string GetExtension(string path)
         {
-            if (string.IsNullOrWhiteSpace(path))
+            if (string.IsNullOrEmpty(path))
                 throw new ArgumentException("path");
 
             var splittedPath = path.Split(Path.DirectorySeparatorChar);
@@ -123,7 +123,7 @@ namespace MsgReader.Helpers
         /// <exception cref="ArgumentException"></exception>
         public static string GetFileNameWithoutExtension(string path)
         {
-            if (string.IsNullOrWhiteSpace(path))
+            if (string.IsNullOrEmpty(path))
                 throw new ArgumentException(@"No path given", "path");
 
             var splittedPath = path.Split(Path.DirectorySeparatorChar);

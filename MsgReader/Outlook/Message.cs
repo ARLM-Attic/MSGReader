@@ -1581,7 +1581,7 @@ namespace MsgReader.Outlook
                     displayName = string.Empty;
 
                 // Set the representing sender
-                if (!string.IsNullOrWhiteSpace(email))
+                if (!string.IsNullOrEmpty(email))
                     SenderRepresenting = new SenderRepresenting(email, displayName);
             }
             #endregion
@@ -1643,7 +1643,7 @@ namespace MsgReader.Outlook
                 // If we want to convert to HTML
                 if (convertToHref && html && !string.IsNullOrEmpty(emailAddress))
                 {
-                    if (!string.IsNullOrWhiteSpace(representingEmailAddress) &&
+                    if (!string.IsNullOrEmpty(representingEmailAddress) &&
                         !emailAddress.Equals(representingEmailAddress, StringComparison.InvariantCultureIgnoreCase))
                         output += "<a href=\"mailto:" + representingEmailAddress + "\">" +
                                   (!string.IsNullOrEmpty(representingDisplayName)
@@ -1658,8 +1658,8 @@ namespace MsgReader.Outlook
 
                 else
                 {
-                    if (!string.IsNullOrWhiteSpace(displayName) &&
-                        !string.IsNullOrWhiteSpace(representingDisplayName) &&
+                    if (!string.IsNullOrEmpty(displayName) &&
+                        !string.IsNullOrEmpty(representingDisplayName) &&
                         !displayName.Equals(representingDisplayName, StringComparison.InvariantCultureIgnoreCase))
                     {
                         if (!string.IsNullOrEmpty(representingDisplayName))
@@ -1884,7 +1884,7 @@ namespace MsgReader.Outlook
                     }
                 }
 
-                return string.Join(", ", result);
+                return string.Join(", ", result.ToArray());
             }
             #endregion
 

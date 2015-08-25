@@ -529,7 +529,7 @@ namespace MsgReader
             // Attachments
             if (attachmentList.Count != 0)
                 WriteHeaderLineNoEncoding(emailHeader, htmlBody, maxLength, LanguageConsts.EmailAttachmentsLabel,
-                    string.Join(", ", attachmentList));
+                    string.Join(", ", attachmentList.ToArray()));
 
             // Empty line
             WriteHeaderEmptyLine(emailHeader, htmlBody);
@@ -573,7 +573,7 @@ namespace MsgReader
             if (categories != null)
             {
                 WriteHeaderLine(emailHeader, htmlBody, maxLength, LanguageConsts.EmailCategoriesLabel,
-                    String.Join("; ", categories));
+                    String.Join("; ", categories.ToArray()));
 
                 // Empty line
                 WriteHeaderEmptyLine(emailHeader, htmlBody);
@@ -706,7 +706,7 @@ namespace MsgReader
             // Attachments
             if (attachmentList.Count != 0)
                 WriteHeaderLineNoEncoding(emailHeader, htmlBody, maxLength, LanguageConsts.EmailAttachmentsLabel,
-                    string.Join(", ", attachmentList));
+                    string.Join(", ", attachmentList.ToArray()));
 
             // Empty line
             WriteHeaderEmptyLine(emailHeader, htmlBody);
@@ -856,7 +856,7 @@ namespace MsgReader
             if (categories != null)
             {
                 WriteHeaderLine(appointmentHeader, htmlBody, maxLength, LanguageConsts.EmailCategoriesLabel,
-                    String.Join("; ", categories));
+                    String.Join("; ", categories.ToArray()));
 
                 // Empty line
                 WriteHeaderEmptyLine(appointmentHeader, htmlBody);
@@ -877,7 +877,7 @@ namespace MsgReader
             {
                 WriteHeaderLineNoEncoding(appointmentHeader, htmlBody, maxLength,
                     LanguageConsts.AppointmentAttachmentsLabel,
-                    string.Join(", ", attachmentList));
+                    string.Join(", ", attachmentList.ToArray()));
 
                 // Empty line
                 WriteHeaderEmptyLine(appointmentHeader, htmlBody);
@@ -1028,7 +1028,7 @@ namespace MsgReader
             var categories = message.Categories;
             if (categories != null)
                 WriteHeaderLine(taskHeader, htmlBody, maxLength, LanguageConsts.EmailCategoriesLabel,
-                    String.Join("; ", categories));
+                    String.Join("; ", categories.ToArray()));
 
             // Companies
             if (message.Task.Companies != null)
@@ -1048,7 +1048,7 @@ namespace MsgReader
             if (attachmentList.Count != 0)
             {
                 WriteHeaderLineNoEncoding(taskHeader, htmlBody, maxLength, LanguageConsts.AppointmentAttachmentsLabel,
-                    string.Join(", ", attachmentList));
+                    string.Join(", ", attachmentList.ToArray()));
 
                 // Empty line
                 WriteHeaderEmptyLine(taskHeader, htmlBody);
@@ -1380,7 +1380,7 @@ namespace MsgReader
             var categories = message.Categories;
             if (categories != null)
                 WriteHeaderLine(contactHeader, htmlBody, maxLength, LanguageConsts.EmailCategoriesLabel,
-                    String.Join("; ", categories));
+                    String.Join("; ", categories.ToArray()));
 
             // Empty line
             WriteHeaderEmptyLine(contactHeader, htmlBody);

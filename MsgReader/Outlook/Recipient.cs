@@ -93,7 +93,7 @@ namespace MsgReader.Outlook
                 string tempEmail;
 
                 var addressType = GetMapiPropertyString(MapiTags.PR_ADDRTYPE);
-                if (string.IsNullOrWhiteSpace(addressType))
+                if (string.IsNullOrEmpty(addressType))
                     addressType = string.Empty;
 
                 switch (addressType.ToUpperInvariant())

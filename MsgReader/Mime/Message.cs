@@ -293,12 +293,11 @@ namespace MsgReader.Mime
 			if (messageStream == null)
 				throw new ArgumentNullException("messageStream");
 
-			using (var memoryStream = new MemoryStream())
-			{
-                messageStream.CopyTo(memoryStream);
-                var content = memoryStream.ToArray();
+            messageStream.Seek(0, SeekOrigin.Begin);
+            byte[] content = new byte[messageStream.Length];
+            messageStream.Read(content, 0, content.Length);
                 return new Message(content);
-			}
+
 		}
 		#endregion
 	}
